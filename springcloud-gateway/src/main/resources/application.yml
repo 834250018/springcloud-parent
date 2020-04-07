@@ -1,0 +1,20 @@
+server:
+  port: 80
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      routes:
+      # 使用http://localhost:80/actuator/info访问http://localhost:8088/actuator/info
+      - id: test # 路由id
+        uri: http://localhost:8088 # 转发路由
+        predicates:
+        - Path=/actuator/info # 匹配路由
+#        - Cookie=test,test # 匹配Cookie,当有此Cookie时转发
+#        - After=2019-04-29T00:00:00+08:00[Asia/Shanghai] # 指定时间转发
+#        - Method=GET # 请求方式转发
+#        - Query=xxx # 请求参数名转发
+#        - Query=xxx,yyy # 请求参数转发
+#        - Host=\*\*.baidu.com # 指定host转发
+#        - RemoteAddr=192.168.1.10/24 # 允许指定ip转发

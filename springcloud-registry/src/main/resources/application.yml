@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: springcloud-registry
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      # 注册中心地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
