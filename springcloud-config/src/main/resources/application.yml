@@ -1,0 +1,19 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: springcloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/834250018/springcloud-config-repository
+eureka:
+  client:
+    service-url:
+      # 注册中心地址
+      defaultZone: http://127.0.0.1:8080/eureka/
+management:
+  endpoint:
+    sessions:
+      enabled: false

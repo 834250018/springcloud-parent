@@ -13,19 +13,12 @@
     <artifactId>springcloud-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springcloud-parent</name>
-    <description>Demo project for Spring Boot</description>
     <modules>
-        <module>springcloud-web</module>
-        <module>springcloud-provider</module>
         <module>springcloud-gateway</module>
         <module>springcloud-registry</module>
         <module>springcloud-config</module>
         <module>springcloud-common</module>
-        <module>springcloud-service</module>
         <module>springcloud-app</module>
-        <module>springcloud-backstage</module>
-        <module>springcloud-otherapp</module>
-        <module>springcloud-secoundapp</module>
     </modules>
 
     <properties>
@@ -37,10 +30,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <exclusions>
@@ -50,7 +39,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
