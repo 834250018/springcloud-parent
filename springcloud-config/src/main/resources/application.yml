@@ -1,3 +1,8 @@
+eureka:
+  client:
+    service-url:
+      # 注册中心地址
+      defaultZone: http://127.0.0.1:8080/eureka/
 server:
   port: 8090
 spring:
@@ -7,13 +12,50 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/834250018/springcloud-config-repository
-eureka:
-  client:
-    service-url:
-      # 注册中心地址
-      defaultZone: http://127.0.0.1:8080/eureka/
-management:
-  endpoint:
-    sessions:
-      enabled: false
+          # 配置默认仓库
+          uri: https://gitee.com/ve0/springcloud-config-repo-test.git
+          force-pull: true
+          repos: # 配置多仓库
+            r1:
+              force-pull: true
+              # 匹配应用名前缀springcloud,环境名前缀prod
+              pattern: springcloud*/dev*
+              # 指定匹配的服务请求的uri
+              uri: https://gitee.com/ve0/springcloud-config-repo-test.git
+            r2:
+              force-pull: true
+              # 匹配应用名前缀springcloud,环境名前缀prod
+              pattern: springcloud*/prod*
+              # 指定匹配的服务请求的uri
+              uri: git@gitee.com:ve0/springcloud-config-repo-prod.git
+              # 设置密钥
+              ignore-local-ssh-settings: true
+              strict-host-key-checking: false
+              private-key: |
+                              -----BEGIN RSA PRIVATE KEY-----
+                              MIIEpAIBAAKCAQEA5Mfm1wuPLx4LBd6BE+w1tufX1TAsfIgM0vXhDmxiMd8eFP9n
+                              dX18xWJJ8+rQP/BQMd0VkJ44sYZ4xCLuG4DqnC9/I3CXrfnKWQ4kOn1yZgDouaNB
+                              8e3+AjiOqz/LUeFeIMSU1wC02/ZV1uYYHHT6fCLRs621qG3risKUPVfXN3+oJjB7
+                              qfGJ5sdPjxc1tJkAv8SslxI9dKcHXNfpQPMcyV8wkS0RLzbHafoJnHLKhK4K8Efp
+                              JL6KyDgizhyO3AW6dDVjGdNINCrbTvxBik6cNH275kL7BHWz2vz5E0izRKiCjWaj
+                              ncIFlFf+1eZ8YuCe8GtFVt9kWOhtz+RHzCBd4QIDAQABAoIBAHMnN0bId7KUoaG7
+                              pCa9/y9oNNgGnm20IRhSUIxs+2P01PRmtdGKbzH+zhBrAZUdRZBDoqYfLZQVhlXa
+                              6xSG6A/jTFAvTPlxwGrg1lVmbR1wmbNOvFOkofTGOPFzc8hr8m/14qDxpxcMP5qi
+                              SEKSkr3G3NxetA/p++PlGq5ht18j+2uLOx811Wjo7HTjbFy8+04r2sIX679akKhv
+                              EAU5R9PAKuR0aEq8U62rF2Obo05EcPwWuF5tj/X9jPEGp5W2jCKU8Rh8u/CN3Uq+
+                              Hc5bLiMRWkftoz+OilC07EyFMVAADAxNZ/oE4SP7Xr/pPEt8UAk/+3Cj7OVWudh0
+                              qWb0QAECgYEA+Nt50PE1Q5BKNYtA+Ppcv9GW9R16gI3b5fbuNe73VCZaVf7VhXp4
+                              Az3g+V9dCmfAtUxj8eX5W0g8J1fCSCDrGHFjv9Iwq/ynPaVHWlKzwHl890VavxY9
+                              BZA9x8CG6+Eaa3PZdPfX5Y8SJrVm3n5gfU/TtK4rXKRv5ZobtNoa++ECgYEA61jp
+                              EyUwzbldQ8DNK7z63rXrpqZ7k2c+u5YbzLH+6S9E57Kjr/B3WYiPU8gfzxOD8XQ+
+                              FCcD908EvJ64BR6gF/i8u7ECqQcE+qNq2NNIh5pxfw9fZbJfgCE7vjbQmlw179QL
+                              Mnx/RoOwiCDPHXbKnyK63t+jTz2MwT3XxTrBogECgYAT/v6wzVDsVuG/n6re1q8x
+                              MpQgqfe38K4ksky9xK/W8SX9FvbtPMP77rLvFryRI3kWmEbHnyUEMq+ysZiI1yxM
+                              0H+lYCxNBYYiq+8p0M9kvd5OuCHsjMrmcYqlTFELDxFiZPKqNWgBqBdbSOQ1KI50
+                              Qz/NmtkdHpFnL5TeWVAlwQKBgQCL6F8msoVAx2FaVdOinMXGf/+HIpF0H3x7p9D+
+                              7xHLLf6YfuowPZO19ii+dcnzIHbfo2sEL+17p835E6Hx6TLjDUuliKU8NqAPH/b0
+                              zyXe90Fhd5IOsutzEE6j1ZJNMWQfHr9JVBmVodPgGSEHMwdhcxQESo6bHMwAVPNg
+                              nH1gAQKBgQCFOnjMq/iRxiiDkio4jCsdwrE1jiNkRmVIKb81HC/mw8/mgvVAztnh
+                              P2nWJmIH9Y7+wkgLqCPP5weR2jCCh8qrN1ShBY03Tf09u7ZjGxNJsjUyGyg2WVGA
+                              aQTw7hs32gLyT8ZCZUMnP+gPIKXzTk+CPuN7bLw6JKhe1WaR6QzJ+A==
+                              -----END RSA PRIVATE KEY-----

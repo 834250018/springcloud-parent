@@ -1,18 +1,41 @@
-spring:
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: springcloud-config
-      label: master
-      name: springcloud-app-web
-      profile: dev
-  application:
-    name: springcloud-app-web
-  profiles:
-    active: dev
 eureka:
   client:
     service-url:
       # 注册中心地址
       defaultZone: http://127.0.0.1:8080/eureka/
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      name: springcloud-app-web
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: springcloud-config
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      name: springcloud-app-web
+      profile: test
+      label: master
+      discovery:
+        enabled: true
+        service-id: springcloud-config
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      name: springcloud-app-web
+      profile: prod
+      label: master
+      discovery:
+        enabled: true
+        service-id: springcloud-config
