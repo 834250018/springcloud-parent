@@ -5,11 +5,18 @@ eureka:
       defaultZone: http://127.0.0.1:8080/eureka/
 spring:
   profiles:
-    active: dev
+    active: test
+  rabbitmq:
+    host: 192.168.1.10
+    virtual-host: /springcloud
 ---
 spring:
   profiles: dev
   cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
     config:
       name: springcloud-app-web
       profile: dev

@@ -1,13 +1,31 @@
 # springcloud-parent
 
-* 一个spring cloud的demo
-* 启动顺序
+一个spring cloud的demo
+
+## 备注
+
+配置中心(多远程仓库还有问题,客户端切环境后启动失败)
+
+注册中心(没有覆盖所有业务模块)
+
+网关(只配置了映射,暂未配置配置中心)
+
+业务模块(只写了web一点点)
+
+公共模组(完全没写)
+
+## 其他
+* 启动顺序(同级不分先后)
     * 注册中心
+    * rabbitmq 全局搜ip改mq配置 192.168.1.10
         * 配置中心
             * app-*
             * 网关
-* 2020/4/9遇到一个很特别的问题
 
+bus刷新配置地址 POST localhost:8090/actuator/bus-refresh
+如果是自定义参数,需要在使用的地方加上@RefreshScope
+
+### 2020/4/9遇到一个很特别的问题
 通过官方文档配置的config-server始终无法正常请求配置文件
 `http://127.0.0.1:8090/springcloud-app-web/dev`请求返回400 Cannot load environment
 

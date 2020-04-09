@@ -59,3 +59,15 @@ spring:
                               P2nWJmIH9Y7+wkgLqCPP5weR2jCCh8qrN1ShBY03Tf09u7ZjGxNJsjUyGyg2WVGA
                               aQTw7hs32gLyT8ZCZUMnP+gPIKXzTk+CPuN7bLw6JKhe1WaR6QzJ+A==
                               -----END RSA PRIVATE KEY-----
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.1.10
+    virtual-host: /springcloud
+management: # 暴露出发消息总线的地址
+  endpoints:
+    web:
+      exposure:
+        include: "*"
