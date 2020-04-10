@@ -1,37 +1,21 @@
-eureka:
-  client:
-    service-url:
-      # 注册中心地址
-      defaultZone: http://127.0.0.1:12000/eureka/
 spring:
   cloud:
     config:
       server:
         git:
           # 配置默认仓库
-          uri: https://gitee.com/ve0/springcloud-config-repo-test.git
+          uri: https://gitee.com/ve0/springcloud-config-repo-dev.git
           ignore-local-ssh-settings: true
           strict-host-key-checking: false
           force-pull: true
           repos: # 配置多仓库
-            r1:
+            r2: # 如果配置了pattern,则此处可以随意命名,如果没有,则匹配命名时r2开头的服务的所有环境
               ignore-local-ssh-settings: true
               strict-host-key-checking: false
               force-pull: true
-              # 匹配应用名前缀springcloud,环境名前缀prod
-              pattern: springcloud*/dev*
-              # 指定匹配的服务请求的uri
-              uri: https://gitee.com/ve0/springcloud-config-repo-dev.git
-            r2:
-              ignore-local-ssh-settings: true
-              strict-host-key-checking: false
-              force-pull: true
-              # 匹配应用名前缀springcloud,环境名前缀prod
-              pattern: springcloud*/prod*
-              # 指定匹配的服务请求的uri
-              uri: git@gitee.com:ve0/springcloud-config-repo-prod.git
-              # 设置密钥
-              private-key: |
+              pattern: springcloud*/prod* # 匹配应用名前缀springcloud,环境名前缀prod
+              uri: git@gitee.com:ve0/springcloud-config-repo-prod.git # 仓库uri
+              private-key: | # 设置密钥
                               -----BEGIN RSA PRIVATE KEY-----
                               MIIEpAIBAAKCAQEA5Mfm1wuPLx4LBd6BE+w1tufX1TAsfIgM0vXhDmxiMd8eFP9n
                               dX18xWJJ8+rQP/BQMd0VkJ44sYZ4xCLuG4DqnC9/I3CXrfnKWQ4kOn1yZgDouaNB
