@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 12000
 spring:
   application:
     name: springcloud-registry
@@ -9,6 +9,3 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-    service-url:
-      # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

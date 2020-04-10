@@ -1,0 +1,13 @@
+server:
+  port: 13000
+spring:
+  application:
+    name: springcloud-config
+  rabbitmq:
+    host: 192.168.1.10
+    virtual-host: /springcloud
+management: # 暴露出发消息总线的地址
+  endpoints:
+    web:
+      exposure:
+        include: "*"

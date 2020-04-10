@@ -2,52 +2,20 @@ eureka:
   client:
     service-url:
       # 注册中心地址
-      defaultZone: http://127.0.0.1:8080/eureka/
+      defaultZone: http://127.0.0.1:12000/eureka/
 spring:
+  application:
+    name: springcloud-app-web
   profiles:
-    active: test
----
-spring:
-  profiles: dev
+    active: prod
   cloud:
     bus:
       enabled: true
       trace:
         enabled: true
     config:
-      name: springcloud-app-web
-      profile: dev
-      label: master
-      discovery:
-        enabled: true
-        service-id: springcloud-config
----
-spring:
-  profiles: test
-  cloud:
-    bus:
-      enabled: true
-      trace:
-        enabled: true
-    config:
-      name: springcloud-app-web
-      profile: test
-      label: master
-      discovery:
-        enabled: true
-        service-id: springcloud-config
----
-spring:
-  profiles: prod
-  cloud:
-    bus:
-      enabled: true
-      trace:
-        enabled: true
-    config:
-      name: springcloud-app-web
-      profile: prod
-      label: master
+      name: springcloud-app-web # 这里不能用占位符
+      profile: ${spring.profiles.active} # 这里能用占位符
       discovery:
         enabled: true
         service-id: springcloud-config
