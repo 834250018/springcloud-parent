@@ -14,23 +14,27 @@ spring:
         git:
           # 配置默认仓库
           uri: https://gitee.com/ve0/springcloud-config-repo-test.git
+          ignore-local-ssh-settings: true
+          strict-host-key-checking: false
           force-pull: true
           repos: # 配置多仓库
             r1:
+              ignore-local-ssh-settings: true
+              strict-host-key-checking: false
               force-pull: true
               # 匹配应用名前缀springcloud,环境名前缀prod
               pattern: springcloud*/dev*
               # 指定匹配的服务请求的uri
-              uri: https://gitee.com/ve0/springcloud-config-repo-test.git
+              uri: https://gitee.com/ve0/springcloud-config-repo-dev.git
             r2:
+              ignore-local-ssh-settings: true
+              strict-host-key-checking: false
               force-pull: true
               # 匹配应用名前缀springcloud,环境名前缀prod
               pattern: springcloud*/prod*
               # 指定匹配的服务请求的uri
               uri: git@gitee.com:ve0/springcloud-config-repo-prod.git
               # 设置密钥
-              ignore-local-ssh-settings: true
-              strict-host-key-checking: false
               private-key: |
                               -----BEGIN RSA PRIVATE KEY-----
                               MIIEpAIBAAKCAQEA5Mfm1wuPLx4LBd6BE+w1tufX1TAsfIgM0vXhDmxiMd8eFP9n

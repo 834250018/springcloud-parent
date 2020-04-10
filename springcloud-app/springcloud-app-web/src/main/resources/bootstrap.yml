@@ -6,9 +6,6 @@ eureka:
 spring:
   profiles:
     active: test
-  rabbitmq:
-    host: 192.168.1.10
-    virtual-host: /springcloud
 ---
 spring:
   profiles: dev
@@ -28,6 +25,10 @@ spring:
 spring:
   profiles: test
   cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
     config:
       name: springcloud-app-web
       profile: test
@@ -39,6 +40,10 @@ spring:
 spring:
   profiles: prod
   cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
     config:
       name: springcloud-app-web
       profile: prod
