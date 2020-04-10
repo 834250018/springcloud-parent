@@ -15,7 +15,7 @@
 * 配置中心(为其他所有服务提供动态配置,跨环境)
     1. 两个环境地址
         https://gitee.com/ve0/springcloud-config-repo-dev
-        https://gitee.com/ve0/springcloud-config-repo-prod
+        https://gitee.com/ve0/springcloud-config-repo-prod *可通过部署密钥下载查看
     2. 关于config中有两个配置文件bootstrap.yml跟application.yml
     3. 思考:如何屏蔽prod环境的配置跟私钥,对团队中部分开发者透明
         1. 不开放config权限?
