@@ -14,20 +14,20 @@
 
 * 配置中心(为其他所有服务提供动态配置,跨环境)
     1. 两个环境地址
-        https://gitee.com/ve0/springcloud-config-repo-dev
-        https://gitee.com/ve0/springcloud-config-repo-prod *可通过部署密钥下载查看
+        1. https://gitee.com/ve0/springcloud-config-repo-dev
+        2. https://gitee.com/ve0/springcloud-config-repo-prod**可通过部署密钥下载查看*
     2. 关于config中有两个配置文件bootstrap.yml跟application.yml
     3. 思考:如何屏蔽prod环境的配置跟私钥,对团队中部分开发者透明
         1. 不开放config权限?
         2.config似乎有一种加密配置,可以将配置文件转换成密文?
         
-注册中心(仅注册功能,还没有覆盖所有业务模块)
+* 注册中心(仅注册功能,还没有覆盖所有业务模块)
 
-网关(已配置转发,待实现高级功能,如限流,权限等)
+* 网关(已配置转发,待实现高级功能,如限流,权限等)
 
-业务模块(只写了web一点点)
+* 业务模块(只写了web一点点)
 
-公共模组(完全没写)
+* 公共模组(完全没写)
 
 bus刷新配置地址 POST localhost:13000/actuator/bus-refresh
 如果使用自定义参数,需要在相应类上加@RefreshScope
