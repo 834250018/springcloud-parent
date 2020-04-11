@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: springcloud-app-user
+  profiles:
+    active: dev
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    config:
+      name: springcloud-app-user # 这里不能用占位符
+      profile: ${spring.profiles.active} # 这里能用占位符
+      uri: http://localhost:13000

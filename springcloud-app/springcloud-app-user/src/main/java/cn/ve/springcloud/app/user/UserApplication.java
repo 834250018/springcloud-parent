@@ -1,4 +1,4 @@
-package cn.ve.springcloud.app.web;
+package cn.ve.springcloud.app.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-//@EnableFeignClients
-public class WebApplication {
+public class UserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
+        SpringApplication.run(UserApplication.class, args);
     }
 }
